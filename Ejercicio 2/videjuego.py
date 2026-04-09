@@ -20,7 +20,7 @@ class NPC(Entidad):
     def mover(self):
         print(f"{self.nombre} se mueve como NPC")
 
-# Polimorfismo
+
 entidades = [Jugador("Heroe Himmel"), Enemigo("Demonio"), NPC("Aldeano")]
 
 for e in entidades:
