@@ -1,0 +1,55 @@
+from abc import ABC, abstractmethod
+
+class Usuario(ABC):
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+    @abstractmethod
+    def acciones(self):
+        pass
+
+
+class Estudiante(Usuario):
+    def entrar_colegio(self):
+        return "entra al colegio"
+
+    def asistir_clases(self):
+        return "asiste a clases"
+
+    def acciones(self):
+        return [self.entrar_colegio(), self.asistir_clases()]
+
+
+class Docente(Usuario):
+    def dar_clase(self):
+        return "da clase"
+
+    def poner_notas(self):
+        return "pone notas"
+
+    def acciones(self):
+        return [self.dar_clase(), self.poner_notas()]
+
+
+class Administrador(Usuario):
+    def anadir_profesor(self):
+        return "añade profesores"
+
+    def anadir_estudiante(self):
+        return "añade estudiantes"
+
+    def acciones(self):
+        return [self.anadir_profesor(), self.anadir_estudiante()]
+
+
+
+usuarios = [
+    Estudiante("Juan (Estudiante)"),
+    Docente("Carlos (Docente)"),
+    Administrador("Ana (Directora)")
+]
+
+for u in usuarios:
+    print(f"{u.nombre}:")
+    for accion in u.acciones():
+        print(" -", accion)
